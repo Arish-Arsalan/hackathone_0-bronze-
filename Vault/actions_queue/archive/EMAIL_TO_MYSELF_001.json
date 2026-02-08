@@ -1,0 +1,6 @@
+{
+  "type": "send_email",
+  "to": "boss@gmail.com",
+  "subject": "Test from AI",
+  "body": "This is a test email from your AI Employee."
+}

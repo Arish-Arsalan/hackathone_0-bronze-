@@ -1,0 +1,6 @@
+{
+  "type": "send_email",
+  "to": "test@example.com",
+  "subject": "Business Update",
+  "body": "Your business update content here."
+}

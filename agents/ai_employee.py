@@ -4,6 +4,7 @@
 AI Employee Agent - Main controller for all skills
 Implements the Ralph Wiggum autonomous completion loop
 Bronze Tier requirement: All AI functionality as Agent Skills
+Silver Tier requirement: Enhanced functionality with multiple watchers and MCP servers
 """
 
 import sys
@@ -36,7 +37,7 @@ class AIEmployee:
                 module = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(module)
                 self.skills[skill_name] = module
-                print(f"LOADED SKILL: {skill_name}")
+                print(f"Loaded skill: {skill_name}")
     
     def get_vault_folders(self):
         """Get all vault folder paths"""
@@ -47,7 +48,8 @@ class AIEmployee:
             'approved': self.vault_path / 'Vault' / 'Approved',
             'done': self.vault_path / 'Vault' / 'Done',
             'plans': self.vault_path / 'Vault' / 'Plans',
-            'dashboard': self.vault_path / 'Vault' / 'Dashboard.md'
+            'dashboard': self.vault_path / 'Vault' / 'Dashboard.md',
+            'post_queue': self.vault_path / 'Vault' / 'post_queue'  # Silver Tier addition
         }
     
     def ralph_wiggum_loop(self, max_iterations=3):
@@ -57,7 +59,7 @@ class AIEmployee:
         print(f"{'='*60}")
         
         for iteration in range(max_iterations):
-            print(f"\nITERATION {iteration + 1}/{max_iterations}")
+            print(f"\nIteration {iteration + 1}/{max_iterations}")
             
             # Use file processor skill
             if 'file_processor' in self.skills:
@@ -71,23 +73,32 @@ class AIEmployee:
             if 'dashboard_updater' in self.skills:
                 self.skills['dashboard_updater'].update_dashboard(self)
             
+            # Silver Tier: LinkedIn publisher skill
+            try:
+                if 'linkedin_publisher' in self.skills:
+                    from agents.skills.linkedin_publisher import schedule_linkedin_posts
+                    schedule_linkedin_posts(self)
+            except ImportError:
+                pass
+            
             time.sleep(5)  # Short delay between iterations
         
-        print(f"\nRALPH WIGGUM LOOP COMPLETED {max_iterations} ITERATIONS")
+        print(f"\nRalph Wiggum loop completed {max_iterations} iterations")
 
 def main():
     print("AI EMPLOYEE AGENT STARTED")
-    print("LOADING AGENT SKILLS...")
+    print("Loading agent skills...")
     
     agent = AIEmployee()
     
-    print("STARTING RALPH WIGGUM AUTONOMOUS LOOP...")
+    print("Starting Ralph Wiggum autonomous loop...")
+    print("Silver Tier: Multiple watchers and MCP servers integrated")
     try:
         while True:
             agent.ralph_wiggum_loop(max_iterations=2)
             time.sleep(15)  # Wait between loops
     except KeyboardInterrupt:
-        print("\nAI EMPLOYEE AGENT STOPPED")
+        print("\nAI Employee agent stopped")
 
 if __name__ == "__main__":
     main()
