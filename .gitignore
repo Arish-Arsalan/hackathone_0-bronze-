@@ -1,22 +1,69 @@
-# Secrets & credentials
-.env
-.secrets/
-*.session
-*.json.enc
-
-# Logs
-Logs/*.log
-Logs/*.json
-
-# Python artifacts
+# Python
 __pycache__/
-*.pyc
-.venv/
-venv/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.swp
+*~
+.DS_Store
 
-# OS artifacts
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
 .DS_Store
 Thumbs.db
-*.swp
+ehthumbs.db
+Icon?
+.apdisk
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Vault archives (don't commit processed files)
+Vault/Inbox/archive/
+Vault/Needs_Action/archive/
+Vault/Pending_Approval/archive/
+Vault/Approved/archive/
+Vault/Done/archive/
+Vault/Plans/archive/
+Vault/actions_queue/archive/
+Vault/post_queue/archive/
+Vault/telegram_queue/archive/
+
+# Personal data
 .env
+*.env
+config.json
+credentials.json

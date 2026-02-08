@@ -1,10 +1,10 @@
 ---
 type: gmail_email
 source: client33@example.com
-subject: Client Meeting #33
+subject: Project Update #33
 ---
 
-Gmail received: Client Meeting from client33@example.com. 
+Gmail received: Contract Discussion from client33@example.com. 
 Email #33 processed by AI Employee system.
-Amount: $966
-Due Date: March 6
+Amount: $959
+Due Date: March 8
