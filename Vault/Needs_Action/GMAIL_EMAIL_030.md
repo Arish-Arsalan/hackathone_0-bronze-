@@ -1,10 +1,10 @@
 ---
 type: gmail_email
 source: client30@example.com
-subject: Invoice Request #30
+subject: Payment Inquiry #30
 ---
 
-Gmail received: Client Meeting from client30@example.com. 
+Gmail received: Project Update from client30@example.com. 
 Email #30 processed by AI Employee system.
-Amount: $348
-Due Date: March 23
+Amount: $395
+Due Date: March 6
