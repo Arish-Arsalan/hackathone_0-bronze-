@@ -1,0 +1,21 @@
+{
+  "servers": [
+    {
+      "name": "email",
+      "command": "node",
+      "args": ["$HOME/AI_Employee_Vault/mcp/email/index.js"],
+      "env": {
+        "VAULT_PATH": "$HOME/AI_Employee_Vault",
+        "DRY_RUN": "true"
+      }
+    },
+    {
+      "name": "browser",
+      "command": "node",
+      "args": ["$HOME/AI_Employee_Vault/mcp/browser/index.js"],
+      "env": {
+        "HEADLESS": "true"
+      }
+    }
+  ]
+}
